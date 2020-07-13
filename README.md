@@ -23,8 +23,10 @@ The **[\*]** on the left denotes that this cell is actively running; it is set t
 
 # Writing your first quantum program
 
-Our first quantum program will demonstrate the idea of **superposition**, one of the fundamental properties of the quantum world that is harnessed in quantum computing. Simply put, a quantum bit in a superposition state is neither 0 or 1 (which henceforth we will write as |0> or |1> to reflect the fact that we are referring to quantum states, not just the numbers 0 and 1), but some simultaneous combination of these states, which in the language of quantum physics can be expressed as a|0> + b|1>, where a and b are complex numbers. When a superposition state is measured, it **collapses** to either |0> (with probability |a|^2) or |1> (with probability |b|^2). From this, you can infer that we must have |a|^2 + |b|^2 = 1.
+Our first quantum program will demonstrate the idea of **superposition**, one of the fundamental properties of the quantum world that is harnessed in quantum computing. Simply put, a quantum bit in a superposition state is neither 0 or 1 (which henceforth we will write as |0> or |1> to reflect the fact that we are referring to quantum states, not just the numbers 0 and 1), but some simultaneous combination of these states, which in the language of quantum physics can be expressed as `a|0> + b|1>`, where a and b are complex numbers. When a superposition state is measured, it **collapses** to either |0> (with probability |a|^2) or |1> (with probability |b|^2). From this, you can infer that we must have `|a|^2 + |b|^2 = 1`.
 
 To demonstrate superposition, we'll build a **quantum circuit**, which is a series of operations (typically called **gates**) applied to a collection of quantum bits, along with a set of classical bits for storing the results of measurements. The code below defines a quantum circuit with 1 quantum bit and 1 classical bit. Type it in the blank cell just below the first one and hit Shift+Enter to run the cell.
 
 ```qc = QuantumCircuit(1,1)```
+
+There are various ways to prepare a superposition state, but one of the simplest and certainly the most common is to start with a qubit in the |0> state (which is where all qubits are initialized on IBM Quantum backends) and apply a **Hadamard** gate. This prepares an equal-weighted superposition, i.e. `a = b = sqrt(2).`
