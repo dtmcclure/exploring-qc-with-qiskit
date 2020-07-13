@@ -10,4 +10,13 @@ Below is an example of the page you'll see upon logging in to the IBM Quantum Ex
 
 # Writing your first quantum program
 
-Click the *Qiskit Notebooks* icon from the landing page or the quick-access toolbar.
+Click the "Qiskit Notebooks" icon from the landing page or the quick-access toolbar, which will take you to the page shown below:
+
+![](images/notebooks_page.png)
+
+This page provides four options: load a pre-loaded tutorial notebook, create a new notebook from scratch, import a notebook from your computer, or load a previously saved notebook. Click "New Notebook" to create your own notebook from scratch.
+
+A new notebook will load. As shown below, the first cell is already populated with code that loads some useful tools, so you're not working completely from scratch.
+![](images/first_cell.png)
+
+As denoted by the **[\*]** on the left, 
