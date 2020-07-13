@@ -4,5 +4,10 @@ These step-by-step instructions will guide you through running your first quantu
 
 # Landing page
 
-Below is an example of the page you'll see upon logging in to the IBM Quantum Experience website.
+Below is an example of the page you'll see upon logging in to the IBM Quantum Experience website. In the middle are large buttons for launching the **composer** (for programming with a GUI) and **notebooks** (for programming with Qiskit); if a list of recent items appears instead of these buttons, the quick-access toolbar mentioned below can be used instead. Toward the bottom, you'll find lists of pending and completed **jobs**. On the right you'll find a list of quantum **backends** (i.e. real quantum devices or quantum simulators) to which you have access. Finally on the left you'll find a vertical toolbar for quick access to various resources.
+
 ![](images/iqx_landing_page.png)
+
+# Writing your first quantum program
+
+Click the *Qiskit Notebooks* icon from the landing page or the quick-access toolbar.
