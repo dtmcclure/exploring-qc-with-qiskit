@@ -8,7 +8,7 @@ Below is an example of the page you'll see upon logging in to the IBM Quantum Ex
 
 ![](images/iqx_landing_page.png)
 
-# Writing your first quantum program
+# Starting a Qiskit notebook
 
 Click the "Qiskit Notebooks" icon from the landing page or the quick-access toolbar, which will take you to the page shown below:
 
@@ -19,4 +19,10 @@ This page provides four options: load a pre-loaded tutorial notebook, create a n
 A new notebook will load. As shown below, the first cell is already populated with code that loads some useful tools, so you're not working completely from scratch.
 ![](images/first_cell.png)
 
-As denoted by the **[\*]** on the left, 
+The **[\*]** on the left denotes that this cell is actively running; it is set to run automatically upon loading the notebook, and should take about 10 seconds. When it completes, the **[\*]** will be replaced by a **[1]**, where 1 indicates that this is the first cell that has been run in this notebook session.
+
+# Writing your first quantum program
+
+Our first quantum program will demonstrate the idea of **superposition**, one of the fundamental properties of the quantum world that is harnessed in quantum computing. Simply put, a quantum bit in a superposition state is neither 0 or 1 (which henceforth we will write as |0> or |1> to reflect the fact that we are referring to quantum states, not just the numbers 0 and 1), but some simultaneous combination of these states, which in the language of quantum physics can be expressed as a|0> + b|1>, where a and b are complex numbers. When a superposition state is measured, it **collapses** to either |0> (with probability |a|^2) or |1> (with probability |b|^2). From this, you can infer that we must have |a|^2 + |b|^2 = 1.
+
+To demonstrate superposition, we'll build a **quantum circuit**, which is a series of operations (typically called **gates**) applied to a collection of quantum bits, along with a set of classical bits for storing the results of measurements.
