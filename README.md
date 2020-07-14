@@ -40,6 +40,7 @@ To see the effect of this gate on our qubit, we'll need to measure it. Use the l
 Congratulations: you have now written a (very simple) quantum program! You can view it as a quantum score:
 
 ```qc.draw()```
+
 ![](images/h_circuit.png)
 
 # Running your first quantum program
