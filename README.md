@@ -59,5 +59,14 @@ We can now launch a **job** to run our circuit. Since we are not expecting a def
 ```job1 = execute(qc, backend=real_device, shots=1000)```
 
 We can get a pop-up widget for tracking the status of our jobs:
+
 ```%qiskit_job_watcher```
 
+When the job finishes, we can plot a histogram of the results:
+
+```
+res1 = job1.result()
+plot_histogram(res1.get_counts())
+```
+
+![](images/hist1.png)
