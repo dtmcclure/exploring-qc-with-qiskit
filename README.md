@@ -81,7 +81,7 @@ Now that you've started to wrap your mind around superposition, it's time to exp
 
 Familiar from classical computing, the CNOT gate acts on two bits labeled **control** and **target**, and has the effect of flipping the state of the target bit if and only if the control bit is a 1. Applied to qubits, this DOES NOT mean we measure the state of the control qubit to collapse it to |0> or |1> and then choose whether to flip the target qubit accordingly; that would merely be a classical operation done with qubits. Instead, we apply a pulse sequence that performs this operation without measuring or otherwise causing any other disturbance to the quantum states.
 
-The implementation of CNOT gates involves some detailed physics, but fortunately the user need not worry about the details. The code below prepares a Bell state and then measures both qubits to check for the expected correlations (note that CNOT is written as `cx`):
+The implementation of CNOT gates involves some detailed physics, but fortunately the user need not worry about the details. The code below defines a circuit that prepares a Bell state and then measures both qubits to check for the expected correlations (note that CNOT is written as `cx`):
 ```
 qc2 = QuantumCircuit(2,2)
 qc2.h(0)
@@ -90,3 +90,21 @@ qc2.measure([0,1],[0,1])
 ```
 
 # Interpreting the Bell state measurement results
+
+The code below plots the results of a job that runs 1,000 shots of the Bell state circuit:
+
+```
+job2 = execute(qc2,backend=backend,shots=1000)
+res2 = job2.result()
+plot_histogram(res2.get_counts())
+```
+
+![](images/hist2.png)
+
+Ideally the only observed outcomes would be ones with both qubits |0> or both qubits |1>, reflecting the correlated behavior expected from entangled states. Any observations of the other two possible outcomes indicate errors due to imperfections in the gates or measurements.
+
+While this is an important result, it doesn't fully capture the surprising features of entangled states. Think about what you would expect to happen if you apply a Hadamard gate to both qubits just prior to the measurement. Now try it (result not shown).
+
+# Conclusion
+
+The exercise above can be thought of as the equivalent of a "Hello world" program for a quantum computer. Writing and running quantum algorithms designed to solve real-world problems requires a more developed understanding of these principles and various techniques for harnessing them, but the concepts and paradigms explored here form the hull upon which the rest of the ship gets built. Welcome aboard!
