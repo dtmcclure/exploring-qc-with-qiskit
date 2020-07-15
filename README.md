@@ -70,3 +70,11 @@ plot_histogram(res1.get_counts())
 ```
 
 ![](images/hist1.png)
+
+Assuming the qubit is well-behaved, we should observe roughly equal counts of |0> and |1>.
+
+Follow-up exercise: what do you expect to observe if you add a second Hadamard gate to your circuit prior to the measurement? Think about it and then try it (results not shown here).
+
+# Writing your second quantum program: demonstrating entanglement
+
+Now that you've started to wrap your mind around superposition, it's time to introduce **entanglement**, a quantum phenomenon so counter-intuitive that Einstein famously referred to its consequences as "spooky action at a distance." To put it in relatively simple terms, an entangled state is a correlated superposition state involving multiple qubits. The simplest such states are the two-qubit states known as Bell states in honor of the physicist John Bell. Preparing a Bell state is remarkably simple:
