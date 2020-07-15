@@ -59,5 +59,34 @@ We can now launch a **job** to run our circuit. Since we are not expecting a def
 ```job1 = execute(qc, backend=real_device, shots=1000)```
 
 We can get a pop-up widget for tracking the status of our jobs:
+
 ```%qiskit_job_watcher```
 
+When the job finishes, we can plot a histogram of the results:
+
+```
+res1 = job1.result()
+plot_histogram(res1.get_counts())
+```
+
+![](images/hist1.png)
+
+Assuming the qubit is well-behaved, we should observe roughly equal counts of |0> and |1>.
+
+Follow-up exercise: what do you expect to observe if you add a second Hadamard gate to your circuit prior to the measurement? Think about it and then try it (results not shown here).
+
+# Writing your second quantum program: demonstrating entanglement with a Bell states
+
+Now that you've started to wrap your mind around superposition, it's time to explore **entanglement**, a quantum phenomenon so counter-intuitive that Einstein famously referred to its consequences as "spooky action at a distance." In the context of quantum computing, an entangled state can be thought of as a correlated superposition state involving multiple qubits. The simplest such states are the two-qubit states known as **Bell states** in honor of the physicist John Bell. Preparing a Bell state is remarkably simple: put one qubit in a superposition state (e.g. using a Hadamard gate) and then use it as the control qubit in a **controlled-NOT (CNOT)** gate.
+
+Familiar from classical computing, the CNOT gate acts on two bits labeled **control** and **target**, and has the effect of flipping the state of the target bit if and only if the control bit is a 1. Applied to qubits, this DOES NOT mean we measure the state of the control qubit to collapse it to |0> or |1> and then choose whether to flip the target qubit accordingly; that would merely be a classical operation done with qubits. Instead, we apply a pulse sequence that performs this operation without measuring or otherwise causing any other disturbance to the quantum states.
+
+The implementation of CNOT gates involves some detailed physics, but fortunately the user need not worry about the details. The code below prepares a Bell state and then measures both qubits to check for the expected correlations (note that CNOT is written as `cx`):
+```
+qc2 = QuantumCircuit(2,2)
+qc2.h(0)
+qc2.cx(0,1)
+qc2.measure([0,1],[0,1])
+```
+
+# Interpreting the Bell state measurement results
